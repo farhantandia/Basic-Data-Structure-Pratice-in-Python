@@ -28,6 +28,13 @@ def insertion_sort(A):
             position = position-1 #decremented position 
         A[position] =cvalue #all element to the left of cvalue are smaller and sorted and continue to the next index
 
+
+'''
+Merge Sort
+Devide & Conquer
+Deviding and merging
+'''
+def merge(A,left)
 A = [12,23,65,1,90]
 insertion_sort(A)
 print(A)
