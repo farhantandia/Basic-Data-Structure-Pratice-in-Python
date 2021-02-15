@@ -20,7 +20,7 @@ def selection_sort(A):
 #stable
 def insertion_sort(A):
     n=len(A)
-    for i in range(n-1):
+    for i in range(n):
         cvalue = A[i] #-> holding the element that needs to be inserted at its proper position 
         position = i #compare the element at index of position with cvalue and move the index of the arrat to its left
         while position > 0 and A[position-1]>cvalue: #inserted elements operation and element A(left of c value) is greater than cvalue
@@ -34,8 +34,8 @@ Merge Sort
 Devide & Conquer
 Deviding and merging
 '''
-def merge(A,left)
-A = [12,23,65,1,90]
+# def merge(A,left)
+A = [12,23,65,1,90,10]
 insertion_sort(A)
 print(A)
 # print(found)
