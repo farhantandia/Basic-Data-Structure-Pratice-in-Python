@@ -58,7 +58,7 @@ def merge(A,left,mid,right):
     
     while i <= mid:
         B[k]=A[i]
-        j=j+1
+        i=i+1
         k=k+1
     
     while j <= right:
@@ -69,7 +69,31 @@ def merge(A,left,mid,right):
     for x in range(left,right+1):
         A[x]=B[x]
 
-A = [12,23,65,1,90,10]
+def radixsort(A):
+    n=len(A)
+    maxelement = max(A)
+    digits = len(str(maxelement))
+    l =[]
+    bins = [l]*10
+    for i in range(digits):
+        for j in range(n):
+            e = int((A[j]/pow(10,i))%10)
+            if len(bins[e])>0:
+                bins[e].append(A[j])
+            else:
+                bins[e] = [A[j]]
+        k=0
+        for x in range(10):
+            if len(bins[x])>0:
+                for y in range(len(bins[x])):
+                    A[k]=bins[x].pop(0)
+                    k=k+1
+
+
+
+
+A = [12,-23,65,1,90,10]
 mergesort(A,0,len(A)-1)
+# radixsort(A)
 print(A)
 # print(found)
