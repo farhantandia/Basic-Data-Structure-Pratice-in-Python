@@ -20,20 +20,20 @@
 # if w ==x:
 #     print('True')
 # else: print('False')
-
+cache={}
 def fibonacci(A):
+    if A in cache:
+        return cache[A]
     if A<0:
         return print('icorrect number')
     elif A ==0: return A
     elif A==1 or A==2:return 1
     else:
-        return fibonacci(A-1)+fibonacci(A-2)
-c=fibonacci(4)
+        value= fibonacci(A-1)+fibonacci(A-2)
+    
+    cache[A]= value
+    return value
+c=fibonacci(40)
 print(c)
-
-def seq_fibonacci(A):
-    if A<0:
-        return print('icorrect number')
-    elif A <=1: return A
-    else:
-        for i in range(A):
+# for i in range(40):
+#        print(fibonacci(i))
