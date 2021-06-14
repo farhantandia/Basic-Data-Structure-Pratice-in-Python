@@ -90,10 +90,64 @@ def radixsort(A):
                     k=k+1
 
 
+def countsort(A):
+    n =len(A)
+    maxsize = max(A)
+    carray = [0]*(maxsize+1)
+    for i in range(n):
+        carray[A[i]] = carray[A[i]]+1
+    i = 0
+    j =0
+    while i<maxsize+1:
+        if carray[i]>0:
+            A[j] =i
+            j+=1
+            carray[i]=carray[i]-1
+        else:
+            i+=1
+
+def countsort_neg(A):
+    n =len(A)
+    minsize = min(A)
+    maxsize = max(A) - minsize
+    carray = [0]*(maxsize+1)
+    for i in A:
+        carray[i-minsize] = carray[i-minsize]+1
+    # i = 0
+    j =0
+    for i in range(len(carray)):
+
+        while 0<carray[i]:
+            A[j] =i+minsize
+            j+=1
+            carray[i]=carray[i]-1
+
+def quicksort(A,low,high):
+    if low < high :
+        pi = partition(A,low,high)
+        quicksort(A,low,pi-1)
+        quicksort(A,pi-1,high)
+
+def partition(A,low,high):
+    pivot = A[low]
+    i =low
+    j=high
+    
+    while (A[i]<=pivot):
+        i+=1
+    while (A[j]>pivot):
+        j-=1
+    if i<j:
+        swap(A[i],A[j])
+
+def swap()
+    
 
 
-A = [12,-23,65,1,90,10]
-mergesort(A,0,len(A)-1)
+A = [12,-23,-23,65,1,90,10]
+# mergesort(A,0,len(A)-1)
 # radixsort(A)
 print(A)
-# print(found)
+countsort_neg(A)
+print(A)
+
