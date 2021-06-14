@@ -1,6 +1,11 @@
+
+def deleteSpaces(s):
+    s_new = s.replace(" ","")
+    return s_new
 def isAnagram(a,b):
-    a = a.lower()
-    b = b.lower()
+    a = deleteSpaces(a.lower())
+    b = deleteSpaces(b.lower())
+
 
     if (len(a)==len(b)):
 
@@ -11,13 +16,10 @@ def isAnagram(a,b):
     
     else : print('False')
 
-word1 = 'gigi'
-word2 = 'igigi'
+word1 = ' gigi'
+word2 = 'iggi'
 
 isAnagram(word1,word2)
-def deleteSpaces(s):
-    s_new = s.replace(" ","")
-    return s_new
 def isAnagram2(str1, str2):
     str1_list = list(str1)
     str1_list.sort()

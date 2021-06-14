@@ -35,7 +35,9 @@ def binary_recursive(A, key, L,R):
             return binary_recursive(A,key,m+1,R)
 
 A = [12,23,65,78,90]
-found = binary_recursive(A,78,0,4)
+# found = binary_recursive(A,78,0,4)
+found = binary_iterative(A,78)
 print(found)
+
 
 
