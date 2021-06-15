@@ -22,16 +22,16 @@ def findDuplicate2(nums):
 #     transposed.append(transposed_row)
 # print(transposed)
 
-# print(findDuplicate2([3,1,3,4,2]))
-myList = [ 4,'a', 'b', 'c', 1, 'd', 3]
-myint = []
-mychar =[]
-for i in range(len(myList)):
-    if str(myList[i]).isdigit():
-        myint.append(myList[i])
-    else :
-        mychar.append(myList[i])
-print(myint)
-print(mychar)
-myIntList = [x for x in myList if isinstance(x, int)]
-myIntList = [x for x in myList if isinstance(x, str)]
+print(findDuplicate2([3,1,1,4,2]))
+# myList = [ 4,'a', 'b', 'c', 1, 'd', 3]
+# myint = []
+# mychar =[]
+# for i in range(len(myList)):
+#     if str(myList[i]).isdigit():
+#         myint.append(myList[i])
+#     else :
+#         mychar.append(myList[i])
+# print(myint)
+# print(mychar)
+# myIntList = [x for x in myList if isinstance(x, int)]
+# myIntList = [x for x in myList if isinstance(x, str)]
