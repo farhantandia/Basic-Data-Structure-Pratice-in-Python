@@ -9,6 +9,17 @@ class _Node:
 class BinarySearchTree:
     def __init__(self):
         self._root = None
+
+    def recinsert(self,troot,e):
+        if troot : 
+            if e < troot._element:
+                troot._left =  self.recinsert(troot._left,e)
+            elif e > troot._element:
+                troot._right =  self.recinsert(troot._right,e)
+        else :
+            n = _Node(e)
+            troot= n
+        return troot
     
     def insert(self,troot,e):
         temp = None
@@ -36,11 +47,11 @@ class BinarySearchTree:
             self.inorder(troot._right)
 
 B = BinarySearchTree()
-B.insert(B._root,50)
-B.insert(B._root,30)
-B.insert(B._root,80)
-B.insert(B._root,10)
-B.insert(B._root,40)
-B.insert(B._root,60)
-B.insert(B._root,90)
+B._root = B.recinsert(B._root,50)
+B.recinsert(B._root,30)
+B.recinsert(B._root,80)
+B.recinsert(B._root,10)
+B.recinsert(B._root,40)
+B.recinsert(B._root,60)
+B.recinsert(B._root,90)
 B.inorder(B._root)
