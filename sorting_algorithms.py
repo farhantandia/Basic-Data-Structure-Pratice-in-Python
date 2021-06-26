@@ -7,7 +7,7 @@ def selection_sort(A):
     for i in range (n-1):
         position = i
         for j in range(i+1,n): #loop all the array value (left to the right) and comapre with first array value 
-            print(j)
+            # print(j)
             if A[j] < A[position]:
                 position=j
         
@@ -143,12 +143,27 @@ def partition(A,low,high):
 
 # def swap()
     
+'''HeapSort'''
+from heap.Heap import Heap
 
+def heapsort(A):
+    H= Heap()
+    n = len(A)
+    for i in range(n):
+        H.insert(A[i])
+    k=n-1
+    for i in range(H._csize):
+        A[k] = H.deleteMax()
+        k -=1
+    
 
-A = [12,-23,-2,65,1,90,10]
-# mergesort(A,0,len(A)-1)
+A = [12,-23,-2,65,1,90.5,90.4]
+mergesort(A,0,len(A)-1)
 # radixsort(A)
-print(A)
-countsort_neg(A)
-print(A)
+# print(A)
+# A = [63, 250, 835, -947, -651, -128]
+print('Original Array:',A)
+# selection_sort(A)
+print('Sorted Array:',A)
+# print(A)
 
