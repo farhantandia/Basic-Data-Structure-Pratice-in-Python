@@ -155,10 +155,31 @@ def heapsort(A):
     for i in range(H._csize):
         A[k] = H.deleteMax()
         k -=1
-    
+
+def bucketsort(A):
+    n =len(A)
+    maxelement = max(A)
+    l = []
+    l_buckets = 100000
+    buckets =[l]*l_buckets
+    for i in range(n):
+        j=int(n*A[i]/(maxelement+1))
+        if len(buckets[j]) ==0:
+            buckets[j] = [A[i]]
+        else:
+            buckets[j].append(A[i])
+    for i in range(l_buckets):
+        insertion_sort(buckets[i])
+    k=0
+    for i in range(l_buckets):
+        for j in range(len(buckets[i])):
+            A[k]=buckets[i].pop(0)
+            k+=1
+
 
 A = [12,-23,-2,65,1,90.5,90.4]
-mergesort(A,0,len(A)-1)
+# mergesort(A,0,len(A)-1)
+bucketsort(A)
 # radixsort(A)
 # print(A)
 # A = [63, 250, 835, -947, -651, -128]
