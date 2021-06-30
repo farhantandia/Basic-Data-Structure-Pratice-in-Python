@@ -28,7 +28,34 @@ def insertion_sort(A):
             position = position-1 #decremented position 
         A[position] =cvalue #all element to the left of cvalue are smaller and sorted and continue to the next index
 
+#comparison : n(n-1)/2 : O(n^2)
+#swapping : n(n-1)/2 : O(n^2)
+#stable
+def bubblesort(A):
+    n=len(A)
+    for passes in range(n-1,0,-1):
+        for i in range(passes):
+            if A[i]>A[i+1]:
+                temp = A[i]
+                A[i] = A[i+1]
+                A[i+1] = temp
 
+#O(n(log(n)))
+def shellsort(A):
+    n=len(A)
+    gap = n//2
+    while gap>0:
+        i = gap
+        while i<n:
+            gvalue=A[i]
+            j=i-gap #holding the element to move
+            while j>=0 and A[j]>gvalue:
+                A[j+gap] = A[j]
+                j = j- gap
+            A[j+gap]=gvalue
+            i+=1
+        gap = gap//2
+                
 '''
 Merge Sort
 Devide & Conquer
@@ -122,24 +149,30 @@ def countsort_neg(A):
             print(A[j])
             j+=1
             carray[i]=carray[i]-1
-
-def quicksort(A,low,high):
-    if low < high :
-        pi = partition(A,low,high)
-        quicksort(A,low,pi-1)
-        quicksort(A,pi-1,high)
-
-def partition(A,low,high):
+            
+'''Quicksort'''
+def partition(A, low, high):
     pivot = A[low]
-    i =low
-    j=high
-    
-    while (A[i]<=pivot):
-        i+=1
-    while (A[j]>pivot):
-        j-=1
-    if i<j:
-        swap(A[i],A[j])
+    i = low + 1
+    j = high
+    while True:
+        while i <= j and A[i] <= pivot:
+            i = i + 1
+        while i <=j and A[j] > pivot:
+            j = j - 1
+        if i <= j:
+            A[i], A[j] = A[j], A[i]
+        else:
+            break
+    A[low], A[j] = A[j], A[low]
+    return j
+
+
+def quicksort(A, low, high):
+    if low < high:
+        pi = partition(A, low, high)
+        quicksort(A, low, pi - 1)
+        quicksort(A, pi + 1, high)
 
 # def swap()
     
@@ -179,7 +212,7 @@ def bucketsort(A):
 
 A = [12,-23,-2,65,1,90.5,90.4]
 # mergesort(A,0,len(A)-1)
-bucketsort(A)
+quicksort(A,0,len(A)-1)
 # radixsort(A)
 # print(A)
 # A = [63, 250, 835, -947, -651, -128]
